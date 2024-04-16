@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using onlineRetail.Model;
@@ -7,6 +8,7 @@ using onlineRetail.Repository.IRepository;
 
 namespace onlineRetail.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -16,6 +18,7 @@ namespace onlineRetail.Controllers
         {
             _customerRepository = customerRepository;
         }
+        
         [HttpGet]
         [Route("Getcustomer")]
         public async Task<IActionResult>Getcustomer()

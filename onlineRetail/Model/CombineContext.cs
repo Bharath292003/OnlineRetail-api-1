@@ -13,5 +13,6 @@ namespace onlineRetail.Model
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<Product> product { get; set; }
+        public  virtual DbSet<User> Users { get; set; }
     }
 }

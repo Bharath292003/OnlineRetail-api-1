@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "onlineRetail", "onlineRetail\onlineRetail.csproj", "{6C810C84-CACD-4C3B-B130-BDC064295979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "onlineRetail", "onlineRetail\onlineRetail.csproj", "{6C810C84-CACD-4C3B-B130-BDC064295979}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onlineretail.xunittest1", "Onlineretail.xunittest1\Onlineretail.xunittest1.csproj", "{077E0817-5E1E-4544-BF58-9B8A08599B5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineRetailAPI.Test", "OnlineRetailAPI.Test\OnlineRetailAPI.Test.csproj", "{C0B19AE2-9883-4ADD-A5FD-FF3D95BA02BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{6C810C84-CACD-4C3B-B130-BDC064295979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C810C84-CACD-4C3B-B130-BDC064295979}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C810C84-CACD-4C3B-B130-BDC064295979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{077E0817-5E1E-4544-BF58-9B8A08599B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{077E0817-5E1E-4544-BF58-9B8A08599B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{077E0817-5E1E-4544-BF58-9B8A08599B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{077E0817-5E1E-4544-BF58-9B8A08599B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0B19AE2-9883-4ADD-A5FD-FF3D95BA02BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0B19AE2-9883-4ADD-A5FD-FF3D95BA02BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0B19AE2-9883-4ADD-A5FD-FF3D95BA02BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0B19AE2-9883-4ADD-A5FD-FF3D95BA02BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

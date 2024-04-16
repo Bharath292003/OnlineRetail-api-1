@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using LazyCache;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Identity.Client;
+using onlineRetail.Caching;
 using onlineRetail.Model;
 using onlineRetail.Repository;
 using onlineRetail.Repository.IRepository;
+using System.Diagnostics;
 
 namespace onlineRetail.Controllers
 {
@@ -12,10 +17,46 @@ namespace onlineRetail.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
-        public ProductController(IProductRepository productRepository) 
+        private readonly ILogger<ProductController> _logger;
+        private ICacheProvider _cacheProvider;
+     
+        public ProductController(IProductRepository productRepository,ILogger<ProductController> logger,ICacheProvider cacheProvider) 
         {
             _productRepository = productRepository;
+            _logger = logger;
+            _cacheProvider = cacheProvider;
+            //_cache = cache;
+            
         }
+        [HttpGet]
+        [Route("/Getproductbycache")]
+        public async Task<ActionResult> GetCustomerCache()
+        {
+            if (_cacheProvider.TryGetValue(cachekeys.product, out List<Product> products))
+                return Ok(products);
+
+             products = await _productRepository.GetAll();
+
+            var cacheEntryOption = new MemoryCacheEntryOptions
+            {
+                AbsoluteExpiration = DateTime.Now.AddSeconds(30),
+                SlidingExpiration = TimeSpan.FromSeconds(30),
+                Size = 1024
+            };
+            _cacheProvider.Set(cachekeys.product, products, cacheEntryOption);
+
+
+            return Ok(products);
+        }
+        //public IActionResult Index()
+        //{
+        //    var stopwatch = new Stopwatch();
+        //    stopwatch.Start();
+        //    if(_cache.TryGetValue(cachekey, out IEnumerable<Product> products)) 
+        //    {
+        //        _logger.Log(LogLevel.Information, "products found in cache");
+        //    }
+        //}
         [HttpGet]
         [Route ("Getproduct")]
         public async Task<IActionResult> Getproduct() 
